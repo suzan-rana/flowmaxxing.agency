@@ -6,7 +6,7 @@ Three static files, no build step and no dependencies:
 
 | File | What it is |
 |---|---|
-| `index.html` | Homepage. Hero, work teaser, services, playbooks, process, fit, pricing, FAQ, contact |
+| `index.html` | Homepage. Hero, services, playbooks, work teaser, process, the weekly loop, testimonials, FAQ, contact |
 | `work.html` | The work grid — every ad, four columns, filterable by platform |
 | `styles.css` | Shared stylesheet for both pages |
 | `media/` | Your ad videos and stills go here |
@@ -42,9 +42,8 @@ The page carries visible dashed slots for everything that needs real input. Sear
 
 - Base location (hero, top right)
 - Ad videos and stills for the work grid, plus a client name on each card
-- Prices for all three tiers (Chapter 07)
+- Client photos and quotes for the testimonial board (Chapter 06) — each needs a licence and written sign-off
 - Minimum monthly spend and onboarding timeline (FAQ Q3, Q6)
-- Three free-tool links (end of Chapter 08)
 - Booking calendar URL (Connect)
 - Social links, privacy and terms (footer)
 
