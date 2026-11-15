@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flowmaxxing</title>
+<meta name="description" content="Meta and TikTok paid social for brands where creative is the growth lever.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: warm paper canvas cut by two full-bleed black chapters; one sans at 600 everywhere, mono only for micro-labels and chapter numbers. */
+:root{
+  --paper:#f9f4ec;
+  --ink:#0a0a0a;
+  --accent:#1f3aff;
+  --accent-lift:#8fa0ff;
+  --rule:rgba(10,10,10,.14);
+  --muted:rgba(10,10,10,.54);
+  --night:#000000;
+  --night-text:#f9f4ec;
+  --night-rule:rgba(249,244,236,.17);
+  --night-muted:rgba(249,244,236,.52);
+  --good:#6fdcb3;
+
+  --f-sans:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --f-mono:"DM Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  color-scheme: light;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--f-sans);font-size:16px;font-weight:500;line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+@media (max-width:620px){.wrap{padding:0 16px}}
+
+/* ---------- type ---------- */
+h1,h2,h3,h4{font-family:var(--f-sans);font-weight:600;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.9rem,9.2vw,7rem);letter-spacing:-0.065em;line-height:.92}
+h2{font-size:clamp(2rem,5.4vw,4.2rem);letter-spacing:-0.055em;line-height:.96}
+h3{font-size:1.18rem;letter-spacing:-0.025em;line-height:1.25}
+p{margin:0}
+.lead{font-size:clamp(1rem,1.25vw,1.12rem);color:var(--muted);max-width:54ch;letter-spacing:-0.01em}
+.micro{font-family:var(--f-mono);font-weight:500;font-size:.68rem;line-height:1.45;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.micro-s{font-family:var(--f-mono);font-weight:400;font-size:.72rem;line-height:1.55;color:var(--muted)}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);vertical-align:middle;flex:none}
+
+/* signature: label slides up and is replaced by its twin */
+.slide{display:inline-block;overflow:hidden;height:1.25em;vertical-align:bottom;text-decoration:none}
+.slide i{display:block;font-style:normal;line-height:1.25em;transition:transform .45s cubic-bezier(.76,0,.24,1)}
+.slide i::after{content:attr(data-t);display:block;line-height:1.25em}
+.slide:hover i,.slide:focus-visible i{transform:translateY(-1.25em)}
+@media (prefers-reduced-motion:reduce){.slide i{transition:none}}
+
+/* ---------- buttons ---------- */
+.btn{
+  font-family:var(--f-mono);font-weight:500;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;display:inline-flex;align-items:center;gap:.55rem;
+  padding:.78rem 1.15rem;border:1px solid var(--ink);border-radius:3px;background:none;color:var(--ink);
+  cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease;
+}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-primary:hover{background:var(--accent);border-color:var(--accent)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.night .btn{border-color:var(--night-text);color:var(--night-text)}
+.night .btn-primary{background:var(--night-text);color:var(--night)}
+.night .btn-primary:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.night .btn-ghost:hover{background:var(--night-text);color:var(--night)}
+
+/* ---------- header ---------- */
+header.site{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(8px)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:62px}
+.wordmark{font-weight:600;font-size:1rem;letter-spacing:-0.05em;text-decoration:none;display:inline-flex;align-items:center;gap:.45rem}
+nav.links{display:flex;gap:1.4rem}
+nav.links a{font-family:var(--f-mono);font-weight:400;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+nav.links a:hover{color:var(--ink)}
+.bar .btn{padding:.52rem .9rem}
+@media (max-width:980px){nav.links{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(3rem,8vw,6.5rem) 0 clamp(2rem,4vw,3rem)}
+.hero h1{max-width:14ch}
+.hero-id{margin-top:1.6rem;display:flex;align-items:center;gap:.6rem}
+.hero-sub{margin-top:2.2rem;display:flex;flex-wrap:wrap;gap:2.5rem;align-items:flex-end;justify-content:space-between}
+.cta-row{display:flex;flex-wrap:wrap;gap:.6rem}
+.hero-corners{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;padding-top:clamp(2.5rem,5vw,4rem)}
+.hero-corners .right{text-align:right}
+@media (max-width:620px){.hero-corners .right{text-align:left}}
+
+/* capability marquee */
+.marq{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);overflow:hidden;padding:.85rem 0;mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.marq-run{display:flex;gap:2.6rem;width:max-content;animation:marq 34s linear infinite}
+.marq:hover .marq-run{animation-play-state:paused}
+.marq span{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);display:flex;align-items:center;gap:2.6rem;white-space:nowrap}
+.marq span::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.55}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marq-run{animation:none}.marq{overflow-x:auto}}
+
+/* ---------- chapters ---------- */
+.chapter{padding:clamp(3.5rem,7vw,6rem) 0;border-top:1px solid var(--rule)}
+.chapter:first-child{border-top:0}
+.chapter-head{display:grid;grid-template-columns:10rem 1fr;gap:2.5rem;align-items:start}
+.chapter-no{padding-top:.5rem}
+.chapter-head .lead{margin-top:1.2rem}
+@media (max-width:820px){.chapter-head{grid-template-columns:1fr;gap:1rem}.chapter-no{padding-top:0}}
+
+.night{background:var(--night);color:var(--night-text)}
+.night .lead,.night .micro,.night .micro-s{color:var(--night-muted)}
+.night .chapter{border-top-color:var(--night-rule)}
+
+/* ---------- slots ---------- */
+.slot{
+  border:1px dashed color-mix(in srgb,var(--accent) 45%,var(--rule));border-radius:3px;
+  background:color-mix(in srgb,var(--accent) 4%,transparent);
+  padding:.9rem 1rem;font-family:var(--f-mono);font-size:.72rem;line-height:1.55;color:var(--muted);
+}
+.slot b{display:block;color:var(--accent);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:.62rem;margin-bottom:.35rem}
+.night .slot{border-color:rgba(249,244,236,.3);background:rgba(249,244,236,.03);color:var(--night-muted)}
+.night .slot b{color:var(--accent-lift)}
+
+/* ---------- services ---------- */
+.services{margin-top:clamp(2.5rem,5vw,3.5rem);border-top:1px solid var(--rule)}
+.service{display:grid;grid-template-columns:10rem 1fr 1.15fr 9rem;gap:2.5rem;align-items:start;padding:1.9rem 0;border-bottom:1px solid var(--rule)}
+.service h3{letter-spacing:-0.03em}
+.service p{color:var(--muted);font-size:.95rem}
+.tags{display:flex;flex-wrap:wrap;gap:.35rem;justify-content:flex-end}
+.tag{font-family:var(--f-mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);border:1px solid var(--rule);border-radius:2px;padding:.2rem .45rem;white-space:nowrap}
+@media (max-width:980px){
+  .service{grid-template-columns:4.5rem 1fr;gap:.8rem 1.1rem}
+  .service p,.service .tags{grid-column:2}
+  .tags{justify-content:flex-start;margin-top:.3rem}
+}
+
+/* ---------- facts ---------- */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.facts .cell{padding:1.8rem 1.6rem 1.8rem 0}
+.facts .cell + .cell{padding-left:1.6rem;border-left:1px solid var(--rule)}
+.facts .v{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:600;letter-spacing:-0.05em;line-height:1}
+.facts .k{color:var(--muted);font-size:.88rem;margin-top:.55rem;max-width:22ch}
+@media (max-width:820px){
+  .facts{grid-template-columns:1fr 1fr}
+  .facts .cell{padding:1.4rem 1.2rem 1.4rem 0}
+  .facts .cell:nth-child(odd){border-left:0;padding-left:0}
+  .facts .cell:nth-child(n+3){border-top:1px solid var(--rule)}
+}
+@media (max-width:480px){
+  .facts{grid-template-columns:1fr}
+  .facts .cell{padding:1.2rem 0;border-left:0}
+  .facts .cell + .cell{padding-left:0;border-top:1px solid var(--rule)}
+}
+
+/* ---------- statement (black) ---------- */
+.statement{padding:clamp(4.5rem,11vw,9rem) 0 0}
+.statement h2{max-width:17ch;font-size:clamp(2.2rem,6.6vw,5.4rem)}
+.statement .em{color:var(--accent-lift)}
+.statement-foot{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-top:2.5rem}
+
+.queue{margin-top:clamp(3rem,6vw,4.5rem);border-top:1px solid var(--night-rule);border-bottom:1px solid var(--night-rule)}
+.queue-label{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:.65rem 0;border-bottom:1px solid var(--night-rule)}
+.queue-track{overflow:hidden;padding:1.1rem 0;mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.queue-run{display:flex;gap:.6rem;width:max-content;animation:marq 52s linear infinite}
+.queue:hover .queue-run{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.queue-run{animation:none}.queue-track{overflow-x:auto}}
+.chip{display:flex;align-items:center;gap:.65rem;flex:none;border:1px solid var(--night-rule);border-radius:3px;background:rgba(249,244,236,.04);padding:.5rem .75rem;font-family:var(--f-mono);font-size:.7rem;white-space:nowrap}
+.chip .vid{color:var(--night-text)}
+.chip .hook{color:var(--night-muted)}
+.state{text-transform:uppercase;letter-spacing:.1em;font-size:.6rem;padding:.14rem .4rem;border-radius:2px;border:1px solid}
+.s-live{color:var(--accent-lift);border-color:rgba(143,160,255,.45);background:rgba(143,160,255,.1)}
+.s-scale{color:var(--good);border-color:rgba(111,220,179,.4);background:rgba(111,220,179,.09)}
+.s-queue{color:var(--night-muted);border-color:var(--night-rule)}
+.s-cut{color:rgba(249,244,236,.4);border-color:var(--night-rule);text-decoration:line-through;text-decoration-thickness:1px}
+
+/* ---------- playbooks ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:clamp(2rem,4vw,2.8rem)}
+.filter{font-family:var(--f-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;padding:.42rem .8rem;border:1px solid var(--rule);border-radius:3px;background:none;color:var(--muted);cursor:pointer;transition:all .18s ease}
+.filter:hover{border-color:var(--ink);color:var(--ink)}
+.filter[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.plays{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:1.8rem;border-top:1px solid var(--rule)}
+.play{padding:1.8rem 1.8rem 1.8rem 0;border-bottom:1px solid var(--rule);display:flex;flex-direction:column;gap:.7rem}
+.play:not(:nth-child(3n+1)){padding-left:1.8rem;border-left:1px solid var(--rule)}
+.play p{color:var(--muted);font-size:.93rem}
+.play .ch{color:var(--accent)}
+.play .go{margin-top:auto;padding-top:.6rem;font-family:var(--f-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.play[hidden]{display:none}
+@media (max-width:980px){
+  .plays{grid-template-columns:1fr}
+  .play,.play:not(:nth-child(3n+1)){padding:1.5rem 0;padding-left:0;border-left:0}
+}
+
+/* ---------- steps (how it works / loop) ---------- */
+.steps{margin-top:clamp(2.5rem,5vw,3.5rem);border-top:1px solid var(--rule)}
+.step{display:grid;grid-template-columns:10rem 1fr 1.2fr 9rem;gap:2.5rem;align-items:start;padding:1.7rem 0;border-bottom:1px solid var(--rule)}
+.step .sn{color:var(--accent)}
+.step p{color:var(--muted);font-size:.95rem}
+.step .cadence{text-align:right}
+@media (max-width:980px){
+  .step{grid-template-columns:4.5rem 1fr;gap:.8rem 1.1rem}
+  .step p,.step .cadence{grid-column:2;text-align:left}
+}
+
+/* ---------- terms ---------- */
+.terms{display:grid;grid-template-columns:repeat(2,1fr);margin-top:clamp(2.5rem,5vw,3.5rem);border-top:1px solid var(--rule)}
+.term{padding:1.8rem 2rem 1.8rem 0;border-bottom:1px solid var(--rule);display:flex;gap:1rem;align-items:flex-start}
+.term:nth-child(even){padding-left:2rem;border-left:1px solid var(--rule)}
+.term .m{font-family:var(--f-mono);font-size:.8rem;color:var(--accent);padding-top:.15rem}
+.term h3{font-size:1.05rem;margin-bottom:.4rem}
+.term p{color:var(--muted);font-size:.93rem}
+@media (max-width:820px){
+  .terms{grid-template-columns:1fr}
+  .term,.term:nth-child(even){padding:1.5rem 0;border-left:0}
+}
+
+/* ---------- fit ---------- */
+.fit{display:grid;grid-template-columns:1fr 1fr;margin-top:clamp(2.5rem,5vw,3.5rem);border-top:1px solid var(--rule)}
+.fit > div{padding:2rem 2.2rem 2.2rem 0;border-bottom:1px solid var(--rule)}
+.fit > div + div{padding-left:2.2rem;border-left:1px solid var(--rule)}
+.fit h3{margin-bottom:1.3rem}
+.fit ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.8rem;color:var(--muted);font-size:.94rem}
+.fit li{display:grid;grid-template-columns:1.4rem 1fr;gap:.4rem}
+.fit li .m{font-family:var(--f-mono);font-size:.82rem}
+.fit .yes .m{color:var(--accent)}
+.fit .no .m{color:rgba(10,10,10,.35)}
+@media (max-width:820px){
+  .fit{grid-template-columns:1fr}
+  .fit > div,.fit > div + div{padding:1.8rem 0;padding-left:0;border-left:0}
+}
+
+/* ---------- tiers ---------- */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(2.5rem,5vw,3.5rem);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.tier{padding:2rem 2rem 2.2rem 0;display:flex;flex-direction:column;gap:1rem}
+.tier + .tier{padding-left:2rem;border-left:1px solid var(--rule)}
+.tier.featured{box-shadow:inset 0 3px 0 var(--accent)}
+.tier h3{font-size:1.6rem;letter-spacing:-0.04em}
+.tier p{color:var(--muted);font-size:.92rem}
+.tier ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.tier ul li{font-family:var(--f-mono);font-size:.7rem;color:var(--muted);display:grid;grid-template-columns:.9rem 1fr;gap:.3rem}
+.tier ul li::before{content:"\2192";color:var(--accent)}
+.tier .foot{margin-top:auto;padding-top:.6rem}
+@media (max-width:980px){
+  .tiers{grid-template-columns:1fr}
+  .tier,.tier + .tier{padding:1.8rem 0;padding-left:0;border-left:0}
+  .tier + .tier{border-top:1px solid var(--rule)}
+}
+
+/* ---------- faq ---------- */
+.faq{margin-top:clamp(2.5rem,5vw,3.5rem);border-top:1px solid var(--rule)}
+details{border-bottom:1px solid var(--rule)}
+summary{cursor:pointer;list-style:none;padding:1.3rem 0;display:grid;grid-template-columns:10rem 1fr 2rem;gap:2.5rem;align-items:baseline;font-weight:600;font-size:1.1rem;letter-spacing:-0.03em}
+summary::-webkit-details-marker{display:none}
+summary .mark{font-family:var(--f-mono);font-weight:400;font-size:1rem;color:var(--accent);text-align:right}
+details .answer{padding:0 0 1.5rem 0;display:grid;grid-template-columns:10rem 1fr 2rem;gap:2.5rem}
+details .answer p,details .answer .slot{grid-column:2}
+details .answer p{color:var(--muted);font-size:.95rem;max-width:62ch}
+details .answer .slot{margin-top:1rem}
+@media (max-width:820px){
+  summary{grid-template-columns:1fr 1.5rem;gap:1rem}
+  summary .qn{display:none}
+  details .answer{grid-template-columns:1fr;gap:0}
+  details .answer p,details .answer .slot{grid-column:1}
+}
+
+/* ---------- tools ---------- */
+.tools{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(2rem,4vw,2.8rem);border-top:1px solid var(--rule)}
+.tool{padding:1.7rem 1.8rem 1.7rem 0;border-bottom:1px solid var(--rule);display:flex;flex-direction:column;gap:.55rem}
+.tool + .tool{padding-left:1.8rem;border-left:1px solid var(--rule)}
+.tool p{color:var(--muted);font-size:.92rem}
+@media (max-width:820px){
+  .tools{grid-template-columns:1fr}
+  .tool,.tool + .tool{padding:1.4rem 0;padding-left:0;border-left:0}
+}
+
+/* ---------- form / connect ---------- */
+.connect{padding:clamp(4rem,9vw,7rem) 0 clamp(2rem,4vw,3rem)}
+.connect h2{max-width:16ch}
+.connect-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(2rem,5vw,4.5rem);align-items:start;margin-top:2.5rem}
+@media (max-width:900px){.connect-grid{grid-template-columns:1fr}}
+
+form.review{display:flex;flex-direction:column;gap:1.1rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+@media (max-width:560px){.row{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:.4rem}
+.field label{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--night-muted)}
+.field label .opt{text-transform:none;letter-spacing:0;opacity:.7}
+.field input,.field select,.field textarea{
+  font-family:var(--f-sans);font-size:.95rem;font-weight:500;color:var(--night-text);
+  background:rgba(249,244,236,.04);border:1px solid var(--night-rule);border-radius:3px;
+  padding:.7rem .8rem;width:100%;
+}
+.field textarea{resize:vertical;min-height:84px}
+.field select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--night-muted) 50%),linear-gradient(135deg,var(--night-muted) 50%,transparent 50%);background-position:calc(100% - 17px) 54%,calc(100% - 12px) 54%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+.field select option{background:#111;color:var(--night-text)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent-lift)}
+.form-foot{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:.3rem}
+#outcome{display:none;border:1px solid var(--night-rule);border-radius:3px;padding:1rem;background:rgba(249,244,236,.04)}
+#outcome.on{display:block}
+#outcome pre{font-family:var(--f-mono);font-size:.72rem;color:var(--night-muted);white-space:pre-wrap;word-break:break-word;margin:.7rem 0 0;max-height:190px;overflow:auto}
+
+.channels{border-top:1px solid var(--night-rule);margin-top:2rem}
+.channel{padding:1.05rem 0;border-bottom:1px solid var(--night-rule);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.channel .v{font-family:var(--f-mono);font-size:.88rem;word-break:break-all}
+.channel a{color:var(--accent-lift);text-decoration:none}
+.channel a:hover{text-decoration:underline}
+.copy{font-family:var(--f-mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.1em;background:none;border:1px solid var(--night-rule);color:var(--night-muted);padding:.38rem .66rem;border-radius:3px;cursor:pointer}
+.copy:hover{border-color:var(--night-text);color:var(--night-text)}
+
+/* ---------- closing + footer ---------- */
+.closing{padding:clamp(3rem,7vw,5.5rem) 0;border-top:1px solid var(--night-rule);display:flex;justify-content:space-between;gap:2rem;align-items:flex-end;flex-wrap:wrap}
+.closing h2{max-width:14ch}
+footer.site{padding:0 0 2rem}
+.foot-cols{display:grid;grid-template-columns:1fr 1fr;gap:2rem;padding:2.5rem 0;border-top:1px solid var(--night-rule)}
+.foot-cols h4{margin:0 0 1rem;font-family:var(--f-mono);font-weight:500;font-size:.68rem;text-transform:uppercase;letter-spacing:.14em;color:var(--night-text)}
+.foot-cols ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.foot-cols a,.foot-cols li span{font-family:var(--f-mono);font-size:.74rem;color:var(--night-muted);text-decoration:none}
+.foot-cols a:hover{color:var(--night-text)}
+.foot-cols .right ul{align-items:flex-end}
+.foot-legal{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:1.6rem;border-top:1px solid var(--night-rule)}
+@media (max-width:620px){.foot-cols .right ul{align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="wordmark" href="#top"><span class="dot"></span>flowmaxxing</a>
+    <nav class="links" aria-label="Sections">
+      <a class="slide" href="#services"><i data-t="Services">Services</i></a>
+      <a class="slide" href="#plays"><i data-t="Playbooks">Playbooks</i></a>
+      <a class="slide" href="#how"><i data-t="How it works">How it works</i></a>
+      <a class="slide" href="#terms"><i data-t="Terms">Terms</i></a>
+      <a class="slide" href="#faq"><i data-t="FAQ">FAQ</i></a>
+    </nav>
+    <a class="btn btn-primary" href="#connect">Book a call</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="micro" style="display:flex;align-items:center;gap:.6rem;margin-bottom:1.6rem"><span class="dot"></span> Meta ads &middot; TikTok ads &middot; Creative</p>
+      <h1>Creative is the only variable left.</h1>
+      <div class="hero-sub">
+        <p class="lead">Everyone buys the same inventory from the same two auctions. We run the test loop that finds the ad which beats it: new angles every week, built, shipped, read against revenue, scaled or cut. You approve every ad before it goes live.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#connect">Book a 30-min call</a>
+          <a class="btn btn-ghost" href="#how">See how it works</a>
+        </div>
+      </div>
+      <div class="hero-corners">
+        <p class="micro-s" style="max-width:26ch">For brands where creative,<br>not targeting, is the lever.</p>
+        <p class="micro right">Remote<br><span style="color:var(--accent)">[ base location slot ]</span></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="marq" aria-hidden="true">
+    <div class="marq-run">
+      <span>Meta ads</span><span>TikTok ads</span><span>Creative production</span><span>Landing pages</span><span>Tracking</span><span>Weekly reporting</span>
+      <span>Meta ads</span><span>TikTok ads</span><span>Creative production</span><span>Landing pages</span><span>Tracking</span><span>Weekly reporting</span>
+    </div>
+  </div>
+
+  <!-- 01 SERVICES -->
+  <section class="chapter" id="services">
+    <div class="wrap">
+      <div class="chapter-head">
+        <p class="micro chapter-no">Chapter 01<br>Services</p>
+        <div>
+          <h2>Media and creative sit on the same desk.</h2>
+          <p class="lead">On Meta and TikTok they are the same job, and splitting them across two vendors is why most accounts plateau. Pick the channel that matters most &mdash; we start there.</p>
+        </div>
+      </div>
+
+      <div class="services">
+        <div class="service">
+          <p class="micro">01 / 05</p>
+          <h3>Meta ads</h3>
+          <p>Facebook and Instagram campaigns built to learn rather than to look tidy. Broad targeting with creative as the lever, consolidated campaigns, and budget moved on the read instead of on nerves.</p>
+          <div class="tags"><span class="tag">Advantage+</span><span class="tag">Creative testing</span><span class="tag">CAPI</span><span class="tag">Catalogue</span></div>
+        </div>
+
+        <div class="service">
+          <p class="micro">02 / 05</p>
+          <h3>TikTok ads</h3>
+          <p>Native-first. TikTok punishes repurposed Meta assets, so the brief starts from the platform and not from whatever is already sitting in the asset library.</p>
+          <div class="tags"><span class="tag">Spark Ads</span><span class="tag">Hook editing</span><span class="tag">Smart+</span><span class="tag">Comments</span></div>
+        </div>
+
+        <div class="service">
+          <p class="micro">03 / 05</p>
+          <h3>Creative production</h3>
+          <p>The constraint on most accounts is not the media buyer. It is how many genuinely different angles reach the auction each week, and how fast the winners get iterated.</p>
+          <div class="tags"><span class="tag">Angle research</span><span class="tag">Creators</span><span class="tag">UGC</span><span class="tag">Statics</span></div>
+        </div>
+
+        <div class="service">
+          <p class="micro">04 / 05</p>
+          <h3>Landing pages and tracking</h3>
+          <p>Focused pages that turn the click into a purchase or a booked call, with tracking that shows which creative delivered which order.</p>
+          <div class="tags"><span class="tag">Page build</span><span class="tag">Pixel &amp; API</span><span class="tag">UTMs</span><span class="tag">Event QA</span></div>
+        </div>
+
+        <div class="service">
+          <p class="micro">05 / 05</p>
+          <h3>Reporting</h3>
+          <p>A plain weekly summary: spend, new-customer CAC, blended return and what we are changing next. Platform ROAS is a bidding signal, not a P&amp;L, and we say so in the report.</p>
+          <div class="tags"><span class="tag">Weekly read</span><span class="tag">Monthly deep read</span><span class="tag">Blended CAC</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACTS -->
+  <div class="wrap">
+    <div class="facts">
+      <div class="cell"><p class="v">4 wks</p><p class="k">Fixed-scope first sprint on one platform</p></div>
+      <div class="cell"><p class="v">1</p><p class="k">Named operator who plans and runs your account</p></div>
+      <div class="cell"><p class="v">Weekly</p><p class="k">Fixed ship day and a written read</p></div>
+      <div class="cell"><p class="v">Yours</p><p class="k">Ad accounts, data and creative, always</p></div>
+    </div>
+  </div>
+
+  <!-- BLACK — STATEMENT + QUEUE -->
+  <section class="night">
+    <div class="statement">
+      <div class="wrap">
+        <h2>When everyone buys the same inventory, the <span class="em">creative</span> is the difference. Always.</h2>
+        <div class="statement-foot">
+          <p class="micro-s" style="max-width:36ch">Targeting converged years ago. Bidding converged after it. What is left is how many real angles you can get into the auction, and how honestly you read them.</p>
+          <p class="micro">Flowmaxxing &middot; 2026</p>
+        </div>
+      </div>
+
+      <div class="queue" aria-label="Illustration of a creative test queue">
+        <div class="wrap">
+          <div class="queue-label">
+            <span class="micro">Creative test queue &mdash; illustrative</span>
+            <span class="micro">Hover to pause</span>
+          </div>
+        </div>
+        <div class="queue-track">
+          <div class="queue-run" aria-hidden="true">
+            <span class="chip"><span class="vid">MT-0412</span><span class="hook">hook &middot; founder voiceover</span><span class="state s-live">live</span></span>
+            <span class="chip"><span class="vid">TT-1188</span><span class="hook">hook &middot; unboxing, no talking</span><span class="state s-scale">scaling</span></span>
+            <span class="chip"><span class="vid">MT-0415</span><span class="hook">angle &middot; price objection</span><span class="state s-cut">cut</span></span>
+            <span class="chip"><span class="vid">TT-1191</span><span class="hook">hook &middot; 3-second problem shot</span><span class="state s-live">live</span></span>
+            <span class="chip"><span class="vid">MT-0418</span><span class="hook">static &middot; side-by-side</span><span class="state s-queue">queued</span></span>
+            <span class="chip"><span class="vid">TT-1195</span><span class="hook">angle &middot; routine, day 14</span><span class="state s-live">live</span></span>
+            <span class="chip"><span class="vid">MT-0421</span><span class="hook">hook &middot; review screenshot</span><span class="state s-cut">cut</span></span>
+            <span class="chip"><span class="vid">TT-1202</span><span class="hook">format &middot; split-screen react</span><span class="state s-queue">queued</span></span>
+            <span class="chip"><span class="vid">MT-0424</span><span class="hook">angle &middot; gifting season</span><span class="state s-scale">scaling</span></span>
+            <span class="chip"><span class="vid">TT-1207</span><span class="hook">hook &middot; "nobody tells you"</span><span class="state s-queue">queued</span></span>
+            <span class="chip"><span class="vid">MT-0412</span><span class="hook">hook &middot; founder voiceover</span><span class="state s-live">live</span></span>
+            <span class="chip"><span class="vid">TT-1188</span><span class="hook">hook &middot; unboxing, no talking</span><span class="state s-scale">scaling</span></span>
+            <span class="chip"><span class="vid">MT-0415</span><span class="hook">angle &middot; price objection</span><span class="state s-cut">cut</span></span>
+            <span class="chip"><span class="vid">TT-1191</span><span class="hook">hook &middot; 3-second problem shot</span><span class="state s-live">live</span></span>
+            <span class="chip"><span class="vid">MT-0418</span><span class="hook">static &middot; side-by-side</span><span class="state s-queue">queued</span></span>
+            <span class="chip"><span class="vid">TT-1195</span><span class="hook">angle &middot; routine, day 14</span><span class="state s-live">live</span></span>
+            <span class="chip"><span class="vid">MT-0421</span><span class="hook">hook &middot; review screenshot</span><span class="state s-cut">cut</span></span>
+            <span class="chip"><span class="vid">TT-1202</span><span class="hook">format &middot; split-screen react</span><span class="state s-queue">queued</span></span>
+            <span class="chip"><span class="vid">MT-0424</span><span class="hook">angle &middot; gifting season</span><span class="state s-scale">scaling</span></span>
+            <span class="chip"><span class="vid">TT-1207</span><span class="hook">hook &middot; "nobody tells you"</span><span class="state s-queue">queued</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap" style="padding-top:1.6rem;padding-bottom:clamp(3rem,6vw,5rem)">
+        <p class="micro-s" style="max-width:52ch">Every creative we ship sits in one of four states, and you can see which state each one is in, any day of the week.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 PLAYBOOKS -->
+  <section class="chapter" id="plays">
+    <div class="wrap">
+      <div class="chapter-head">
+        <p class="micro chapter-no">Chapter 02<br>Playbooks</p>
+        <div>
+          <h2>How we would play it.</h2>
+          <p class="lead">Six situations we are set up for. These are approaches, not case studies &mdash; results from real accounts go in Chapter 03 once there are accounts to report on.</p>
+        </div>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter playbooks by channel">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter" type="button" data-filter="meta" aria-pressed="false">Meta</button>
+        <button class="filter" type="button" data-filter="tiktok" aria-pressed="false">TikTok</button>
+        <button class="filter" type="button" data-filter="creative" aria-pressed="false">Creative</button>
+      </div>
+
+      <div class="plays" id="playgrid">
+        <article class="play" data-channel="meta">
+          <p class="micro ch">Meta</p>
+          <h3>Offer testing for e-commerce</h3>
+          <p>Several creative angles run against one offer in a consolidated structure, with budget moved to whatever clears the agreed CAC rather than to whatever has the prettiest ROAS.</p>
+          <p class="go">Angle &rarr; offer &rarr; reallocate</p>
+        </article>
+        <article class="play" data-channel="tiktok">
+          <p class="micro ch">TikTok</p>
+          <h3>Spark Ads from owned content</h3>
+          <p>Your best organic posts and creator videos promoted as Spark Ads, so the social proof on the post carries into paid instead of being thrown away at upload.</p>
+          <p class="go">Organic &rarr; whitelist &rarr; scale</p>
+        </article>
+        <article class="play" data-channel="creative">
+          <p class="micro ch">Creative</p>
+          <h3>Angle mining from reviews</h3>
+          <p>Reviews, support tickets and comments read end to end, turned into a ranked list of buying reasons, and each one written as a hook that can be shot cheaply.</p>
+          <p class="go">Research &rarr; brief &rarr; batch</p>
+        </article>
+        <article class="play" data-channel="meta">
+          <p class="micro ch">Meta</p>
+          <h3>Rescue on a plateaued account</h3>
+          <p>Where spend is flat and CAC is drifting: a structure teardown, a tracking audit, then one clean creative cycle before anyone touches the budget.</p>
+          <p class="go">Audit &rarr; rebuild &rarr; one cycle</p>
+        </article>
+        <article class="play" data-channel="tiktok">
+          <p class="micro ch">TikTok</p>
+          <h3>First month on TikTok</h3>
+          <p>For brands with a working Meta account and nothing on TikTok: native creative built from scratch, a deliberately small test budget, and an honest read on whether the channel works for the product.</p>
+          <p class="go">Native build &rarr; test &rarr; verdict</p>
+        </article>
+        <article class="play" data-channel="creative">
+          <p class="micro ch">Creative</p>
+          <h3>Winner iteration</h3>
+          <p>When one ad is carrying the account: new hooks on the same body, new formats, new lengths, so the winner has successors before it fatigues rather than after.</p>
+          <p class="go">Isolate &rarr; vary &rarr; replace</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 WORK -->
+  <section class="chapter" id="work">
+    <div class="wrap">
+      <div class="chapter-head">
+        <p class="micro chapter-no">Chapter 03<br>Work</p>
+        <div>
+          <h2>Results, once there are results.</h2>
+          <p class="lead">Each slot takes one account: the starting position, what changed, and the outcome over a stated window, with the same metric across all three so they can be compared.</p>
+        </div>
+      </div>
+      <div style="margin-top:2.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
+        <div class="slot"><b>Case 01 &middot; Meta</b>Starting position &middot; what changed &middot; result over a named window &middot; one client quote &middot; one creative still.</div>
+        <div class="slot"><b>Case 02 &middot; TikTok</b>Same structure. If a client will not be named, use category and spend band and say the name is withheld.</div>
+        <div class="slot"><b>Case 03 &middot; Creative</b>Same structure. One honest case beats three vague ones &mdash; delete the slots you cannot fill.</div>
+      </div>
+      <style>@media (max-width:820px){#work .slot{grid-column:1}#work div[style*="repeat(3"]{grid-template-columns:1fr !important}}</style>
+    </div>
+  </section>
+
+  <!-- 04 HOW IT WORKS -->
+  <section class="chapter" id="how">
+    <div class="wrap">
+      <div class="chapter-head">
+        <p class="micro chapter-no">Chapter 04<br>How it works</p>
+        <div>
+          <h2>One platform first. You see your own numbers before deciding anything more.</h2>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <p class="micro sn">Step 01</p>
+          <h3>A 30-minute call</h3>
+          <p>Your offer, your margin and your goal. No deck. You leave with the first three tests we would run whether or not you hire us.</p>
+          <p class="micro cadence">Free &middot; no obligation</p>
+        </div>
+        <div class="step">
+          <p class="micro sn">Step 02</p>
+          <h3>A 4-week sprint on one platform</h3>
+          <p>Audit, tracking, then the first creative batch live on a fixed ship day. Fixed scope and fixed fee, agreed in writing before anything starts.</p>
+          <p class="micro cadence">Fixed scope &middot; fixed fee</p>
+        </div>
+        <div class="step">
+          <p class="micro sn">Step 03</p>
+          <h3>You approve, we report</h3>
+          <p>Every ad is signed off by you before it goes live, and the numbers land in a written read each week. Continue, change platform, or stop.</p>
+          <p class="micro cadence">Weekly</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 THE LOOP -->
+  <section class="chapter" id="loop">
+    <div class="wrap">
+      <div class="chapter-head">
+        <p class="micro chapter-no">Chapter 05<br>The weekly loop</p>
+        <div>
+          <h2>Inside the sprint, one loop repeated.</h2>
+          <p class="lead">Everything we do sits in one of these five steps. Nothing happens off the loop, and the weekly read is the thing you hold us to.</p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <p class="micro sn">01</p><h3>Audit and baseline</h3>
+          <p>Account, tracking, margin and creative library. We write down the number that decides spend, and what the last 90 days actually did.</p>
+          <p class="micro cadence">Once &middot; week 1</p>
+        </div>
+        <div class="step">
+          <p class="micro sn">02</p><h3>Angles</h3>
+          <p>Reasons a real person buys, pulled from reviews, tickets, comments and competitor ad libraries. Each becomes a testable claim, not a mood board.</p>
+          <p class="micro cadence">Rolling</p>
+        </div>
+        <div class="step">
+          <p class="micro sn">03</p><h3>Build</h3>
+          <p>Angles turn into scripts, briefs and edits, produced in batches so one angle ships in several formats across both platforms at once.</p>
+          <p class="micro cadence">Weekly batch</p>
+        </div>
+        <div class="step">
+          <p class="micro sn">04</p><h3>Launch</h3>
+          <p>Into a structure that can learn: enough budget per cell to clear the noise floor, clean naming, and no changes mid-read.</p>
+          <p class="micro cadence">Fixed ship day</p>
+        </div>
+        <div class="step">
+          <p class="micro sn">05</p><h3>Read and reallocate</h3>
+          <p>Cut, hold or scale against the agreed number. Winners get iterated; losers tell us something about the angle. That read starts the next cycle.</p>
+          <p class="micro cadence">Weekly &middot; monthly deep</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 TERMS -->
+  <section class="chapter" id="terms">
+    <div class="wrap">
+      <div class="chapter-head">
+        <p class="micro chapter-no">Chapter 06<br>Terms</p>
+        <div>
+          <h2>Straight-up terms.</h2>
+          <p class="lead">The things worth settling before any money moves. None of these are negotiable in our favour.</p>
+        </div>
+      </div>
+      <div class="terms">
+        <div class="term"><span class="m">01</span><div><h3>You approve everything.</h3><p>No ad, creative or landing page goes live until you have signed it off.</p></div></div>
+        <div class="term"><span class="m">02</span><div><h3>You own your accounts.</h3><p>Ad accounts, pixel, catalogue, data and creative stay yours. We work through partner access you can remove at any time, without a migration.</p></div></div>
+        <div class="term"><span class="m">03</span><div><h3>Your ad spend goes straight to the platform.</h3><p>We never hold your budget. Meta and TikTok bill your card, not ours.</p></div></div>
+        <div class="term"><span class="m">04</span><div><h3>Creative is licensed to you.</h3><p>Everything we produce, including creator footage, comes with usage rights in your name for an agreed term.</p></div></div>
+        <div class="term"><span class="m">05</span><div><h3>No guaranteed ROAS.</h3><p>Nobody can promise a return honestly. We commit to the process: agreed creative volume, a fixed ship day, and numbers you can audit.</p></div></div>
+        <div class="term"><span class="m">06</span><div><h3>We tell you when to stop.</h3><p>If the account is not moving against the agreed number, you hear it from us before you ask.</p></div></div>
+      </div>
+      <div class="slot" style="margin-top:1.8rem;max-width:72ch">
+        <b>Check before launch</b>
+        Add your advertising-compliance line here (platform policies, any regulated categories you decline, and your privacy and data-handling statement). If AI assists any part of your research or drafting, say so plainly like Sorted Strata do &mdash; it reads as confidence, not a disclaimer.
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 FIT -->
+  <section class="chapter" id="fit">
+    <div class="wrap">
+      <div class="chapter-head">
+        <p class="micro chapter-no">Chapter 07<br>Fit</p>
+        <div>
+          <h2>Read the right-hand column first.</h2>
+          <p class="lead">We would rather lose the call than take an account we cannot move.</p>
+        </div>
+      </div>
+      <div class="fit">
+        <div>
+          <h3>Good fit</h3>
+          <ul class="yes">
+            <li><span class="m">+</span><span>Already spending on Meta or TikTok, with a few months of account history.</span></li>
+            <li><span class="m">+</span><span>Repeat purchase or decent margin, so paid social has room to work.</span></li>
+            <li><span class="m">+</span><span>Someone internally who can approve creative within a few days.</span></li>
+            <li><span class="m">+</span><span>Willing to be measured on blended CAC or contribution margin.</span></li>
+            <li><span class="m">+</span><span>Comfortable shipping volume, some of it unflattering to the brand book.</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Not a fit</h3>
+          <ul class="no">
+            <li><span class="m">&minus;</span><span>Looking for a media buyer to run the account at today's creative volume.</span></li>
+            <li><span class="m">&minus;</span><span>Creative approval sits with a committee, or takes weeks.</span></li>
+            <li><span class="m">&minus;</span><span>Expecting a fixed ROAS guarantee.</span></li>
+            <li><span class="m">&minus;</span><span>No purchase tracking, and no appetite to fix it first.</span></li>
+            <li><span class="m">&minus;</span><span>Categories we cannot legally advertise on either platform.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 ENGAGEMENT -->
+  <section class="chapter" id="engagement">
+    <div class="wrap">
+      <div class="chapter-head">
+        <p class="micro chapter-no">Chapter 08<br>Engagement</p>
+        <div>
+          <h2>Three ways in.</h2>
+          <p class="lead">Priced per account on spend and creative volume. The figures below are yours to fill in once you have settled them.</p>
+        </div>
+      </div>
+      <div class="tiers">
+        <div class="tier">
+          <p class="micro">Entry</p>
+          <h3>Account audit</h3>
+          <p>A written read on structure, tracking, creative and the number that should decide spend. Yours to keep either way.</p>
+          <ul><li>Account and tracking review</li><li>Creative library teardown</li><li>90-day plan with named tests</li><li>One call to walk through it</li></ul>
+          <div class="foot"><div class="slot"><b>Price slot</b>Fixed fee &middot; turnaround in business days</div></div>
+        </div>
+        <div class="tier featured">
+          <p class="micro">Core</p>
+          <h3>Managed growth</h3>
+          <p>We run media on one or both platforms and own the weekly loop. You keep your own production, or we brief yours.</p>
+          <ul><li>Meta and TikTok managed</li><li>Weekly ship day, weekly read</li><li>Measurement setup and reporting</li><li>Named operator, not a pooled queue</li></ul>
+          <div class="foot"><div class="slot"><b>Price slot</b>Retainer, or retainer plus percentage of spend &middot; minimum spend &middot; minimum term</div></div>
+        </div>
+        <div class="tier">
+          <p class="micro">Full</p>
+          <h3>Creative engine</h3>
+          <p>Everything in Core, plus we produce the creative: angle research, creators, edits and statics at an agreed weekly volume.</p>
+          <ul><li>Agreed creatives shipped per week</li><li>Creator sourcing and usage rights</li><li>UGC, statics and motion from one brief</li><li>Assets licensed to you, not to us</li></ul>
+          <div class="foot"><div class="slot"><b>Price slot</b>Retainer &middot; creative volume included &middot; cost per extra asset</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 FAQ -->
+  <section class="chapter" id="faq">
+    <div class="wrap">
+      <div class="chapter-head">
+        <p class="micro chapter-no">Chapter 09<br>Questions</p>
+        <div><h2>Asked on every first call.</h2></div>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary><span class="micro qn">Q1</span><span>Who owns the ad accounts and the creative?</span><span class="mark">+</span></summary>
+          <div class="answer"><p>You do. We work inside your Business Manager and TikTok Ads Manager through partner access, and every asset we produce is licensed to you. If we stop working together you keep the accounts, the data and the creative, and nothing needs migrating.</p></div>
+        </details>
+        <details>
+          <summary><span class="micro qn">Q2</span><span>What do you need from us to start?</span><span class="mark">+</span></summary>
+          <div class="answer"><p>Partner access to the ad accounts, access to analytics and the store back end, your margin or contribution figures, and one person who can approve creative. Week one is the audit, so the first thing you get back is a written baseline rather than new ads.</p></div>
+        </details>
+        <details>
+          <summary><span class="micro qn">Q3</span><span>Is there a minimum spend?</span><span class="mark">+</span></summary>
+          <div class="answer">
+            <p>Yes. Below a certain monthly spend there is not enough signal per test to learn anything, and you would be paying us to guess.</p>
+            <div class="slot"><b>Fill in</b>Your minimum monthly ad spend, and the minimum per-platform budget you require.</div>
+          </div>
+        </details>
+        <details>
+          <summary><span class="micro qn">Q4</span><span>Do you guarantee a ROAS target?</span><span class="mark">+</span></summary>
+          <div class="answer"><p>No, and we would not trust an agency that did. We commit to an agreed number that decides spend, an agreed creative volume per week, a fixed ship day, and a weekly read you can audit.</p></div>
+        </details>
+        <details>
+          <summary><span class="micro qn">Q5</span><span>Do you make the creative, or just run media?</span><span class="mark">+</span></summary>
+          <div class="answer"><p>Both are on offer. Managed growth runs media and briefs your producers. Creative engine means we own production too, at an agreed number of assets per week. Most accounts that plateau are short of creative, not short of media management.</p></div>
+        </details>
+        <details>
+          <summary><span class="micro qn">Q6</span><span>How quickly do you launch?</span><span class="mark">+</span></summary>
+          <div class="answer">
+            <p>Audit first, then the first batch goes live on the next ship day once tracking is verified. Rushing live before measurement is right is how an account spends three weeks learning nothing.</p>
+            <div class="slot"><b>Fill in</b>Your real onboarding timeline in weeks, from signed to first batch live.</div>
+          </div>
+        </details>
+        <details>
+          <summary><span class="micro qn">Q7</span><span>How do we talk day to day?</span><span class="mark">+</span></summary>
+          <div class="answer"><p>A shared channel for the week, a written weekly read, and a monthly deep read on a call. No standing status meeting that exists to be a status meeting.</p></div>
+        </details>
+      </div>
+
+      <div style="margin-top:clamp(2.5rem,5vw,3.5rem)">
+        <p class="micro">Free tools</p>
+        <div class="tools">
+          <div class="tool">
+            <p class="micro" style="color:var(--accent)">Checklist</p>
+            <h3>Meta ads launch checklist</h3>
+            <p>The tracking, structure and creative checks we run before a single dollar goes out.</p>
+            <div class="slot" style="margin-top:.4rem"><b>Slot</b>Link to the PDF or page</div>
+          </div>
+          <div class="tool">
+            <p class="micro" style="color:var(--accent)">Template</p>
+            <h3>Creative brief template</h3>
+            <p>One page that turns a buying reason into a shootable hook, body and CTA.</p>
+            <div class="slot" style="margin-top:.4rem"><b>Slot</b>Link to the file</div>
+          </div>
+          <div class="tool">
+            <p class="micro" style="color:var(--accent)">Calculator</p>
+            <h3>Minimum test budget</h3>
+            <p>What one creative cell needs per week to clear the noise floor at your CAC.</p>
+            <div class="slot" style="margin-top:.4rem"><b>Slot</b>Link or embed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLACK — REVIEW FORM + CLOSING + FOOTER -->
+  <section class="night" id="connect">
+    <div class="connect">
+      <div class="wrap">
+        <p class="micro" style="display:flex;align-items:center;gap:.6rem"><span class="dot" style="background:var(--accent-lift)"></span> Next chapter &mdash; Connect</p>
+        <h2 style="margin-top:1.4rem">Request a free account review.</h2>
+
+        <div class="connect-grid">
+          <div>
+            <p class="lead">Tell us what you sell and who you are trying to reach. We reply with where we would start: platform, angle and a rough first sprint. If we are not the right people, we say that instead.</p>
+            <p class="micro-s" style="margin-top:1.4rem">Prefer to talk? Book a 30-minute call instead &mdash; free, no obligation.</p>
+
+            <div class="channels">
+              <div class="channel">
+                <span class="micro">Email</span>
+                <span class="v"><a href="mailto:hello@flowmaxxing.agency">hello@flowmaxxing.agency</a></span>
+                <button class="copy" type="button" data-copy="hello@flowmaxxing.agency">Copy</button>
+              </div>
+              <div class="channel">
+                <span class="micro">Book directly</span>
+                <span class="v" style="color:var(--night-muted)">Calendar link</span>
+                <span class="copy" style="cursor:default">slot</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Static page: no endpoint. Wire action="" / fetch() to your form handler on deploy. -->
+          <form class="review" id="reviewForm" novalidate>
+            <div class="row">
+              <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+              <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+            </div>
+            <div class="row">
+              <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" type="text" autocomplete="organization"></div>
+              <div class="field"><label for="f-site">Website <span class="opt">(optional)</span></label><input id="f-site" name="website" type="text" autocomplete="url"></div>
+            </div>
+            <div class="row">
+              <div class="field">
+                <label for="f-help">What do you want help with?</label>
+                <select id="f-help" name="help">
+                  <option>Meta ads</option><option>TikTok ads</option><option>Creative production</option><option>A mix of these</option><option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-spend">Current monthly spend</label>
+                <select id="f-spend" name="spend">
+                  <option>Not spending yet</option><option>Under $10k</option><option>$10k &ndash; $50k</option><option>$50k &ndash; $200k</option><option>$200k+</option>
+                </select>
+              </div>
+            </div>
+            <div class="field"><label for="f-note">Anything we should know? <span class="opt">(optional)</span></label><textarea id="f-note" name="note"></textarea></div>
+            <div class="form-foot">
+              <button class="btn btn-primary" type="submit">Request a review</button>
+              <span class="micro-s">We use these details only to reply to you.</span>
+            </div>
+            <div id="outcome" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="closing">
+        <h2>Let's find the ad that works.</h2>
+        <div>
+          <p class="micro-s" style="max-width:30ch;margin-bottom:1.2rem">Thirty minutes. We tell you honestly whether we can move the account.</p>
+          <a class="btn btn-primary" href="#reviewForm">Book a 30-min call</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site">
+      <div class="wrap">
+        <div class="foot-cols">
+          <div>
+            <h4>Sitemap</h4>
+            <ul>
+              <li><a class="slide" href="#services"><i data-t="Services">Services</i></a></li>
+              <li><a class="slide" href="#plays"><i data-t="Playbooks">Playbooks</i></a></li>
+              <li><a class="slide" href="#how"><i data-t="How it works">How it works</i></a></li>
+              <li><a class="slide" href="#terms"><i data-t="Terms">Terms</i></a></li>
+              <li><a class="slide" href="#connect"><i data-t="Connect">Connect</i></a></li>
+            </ul>
+          </div>
+          <div class="right">
+            <h4>Channels</h4>
+            <ul>
+              <li><span>[ LinkedIn slot ]</span></li>
+              <li><span>[ Instagram slot ]</span></li>
+              <li><span>[ TikTok slot ]</span></li>
+              <li><span>[ X slot ]</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="foot-legal">
+          <span class="micro">&copy; 2026 Flowmaxxing &middot; flowmaxxing.agency</span>
+          <span class="micro">[ Privacy slot ] &middot; [ Terms slot ]</span>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+</main>
+
+<script>
+// copy buttons
+document.querySelectorAll('.copy[data-copy]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var v = btn.getAttribute('data-copy');
+    var done = function (ok) {
+      btn.textContent = ok ? 'Copied' : 'Copy failed';
+      setTimeout(function () { btn.textContent = 'Copy'; }, 1800);
+    };
+    try { navigator.clipboard.writeText(v).then(function(){done(true);}, function(){done(false);}); }
+    catch (e) { done(false); }
+  });
+});
+
+// faq markers
+document.querySelectorAll('details').forEach(function (d) {
+  var set = function () { var m = d.querySelector('.mark'); if (m) m.textContent = d.open ? '−' : '+'; };
+  d.addEventListener('toggle', set); set();
+});
+
+// playbook filter
+var filters = document.querySelectorAll('.filter');
+filters.forEach(function (b) {
+  b.addEventListener('click', function () {
+    var want = b.dataset.filter;
+    filters.forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+    document.querySelectorAll('#playgrid .play').forEach(function (card) {
+      card.hidden = !(want === 'all' || card.dataset.channel === want);
+    });
+  });
+});
+
+// review form: a static page has nowhere to post, so compose the enquiry for the visitor to send themselves
+document.getElementById('reviewForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var f = e.target, out = document.getElementById('outcome');
+  var get = function (n) { return (f.elements[n].value || '').trim(); };
+  if (!get('name') || !get('email')) {
+    out.className = 'on';
+    out.innerHTML = '<p class="micro-s">Add your name and work email so we can reply.</p>';
+    return;
+  }
+  var body = [
+    'Name: ' + get('name'),
+    'Email: ' + get('email'),
+    'Company: ' + (get('company') || '-'),
+    'Website: ' + (get('website') || '-'),
+    'Wants help with: ' + f.elements['help'].value,
+    'Monthly spend: ' + f.elements['spend'].value,
+    '',
+    get('note') || '(no extra notes)'
+  ].join('\n');
+  var to = 'hello@flowmaxxing.agency';
+  out.className = 'on';
+  out.innerHTML =
+    '<p class="micro" style="color:var(--accent-lift)">Not sent yet</p>' +
+    '<p class="micro-s" style="margin-top:.5rem">This page cannot send mail on its own. Copy the enquiry below, or open it in your mail app, and send it to ' + to + '.</p>' +
+    '<pre id="draft"></pre>' +
+    '<div class="form-foot"><button class="copy" type="button" id="copyDraft">Copy enquiry</button>' +
+    '<a class="copy" style="text-decoration:none" href="mailto:' + to + '?subject=' + encodeURIComponent('Account review request') + '&body=' + encodeURIComponent(body) + '">Open in mail app</a></div>';
+  document.getElementById('draft').textContent = body;
+  document.getElementById('copyDraft').addEventListener('click', function () {
+    var b = this;
+    try {
+      navigator.clipboard.writeText(body).then(
+        function () { b.textContent = 'Copied'; setTimeout(function(){ b.textContent='Copy enquiry'; }, 1800); },
+        function () { b.textContent = 'Copy failed'; }
+      );
+    } catch (err) { b.textContent = 'Copy failed'; }
+  });
+});
+</script>
+</body>
+</html>
