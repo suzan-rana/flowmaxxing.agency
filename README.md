@@ -2,14 +2,13 @@
 
 Marketing site for Flowmaxxing — Meta and TikTok paid social.
 
-Three static files, no build step and no dependencies:
+One page plus a stylesheet, no build step and no dependencies:
 
 | File | What it is |
 |---|---|
-| `index.html` | Homepage. Hero, services, playbooks, work teaser, process, the weekly loop, testimonials, FAQ, contact |
-| `work.html` | The work grid — every ad, four columns, filterable by platform |
-| `styles.css` | Shared stylesheet for both pages |
-| `media/` | Your ad videos and stills go here |
+| `index.html` | The whole site: hero, services, playbooks, the wall, process, the weekly loop, testimonials, FAQ, contact |
+| `styles.css` | Stylesheet |
+| `media/` | Your ad stills and client photos go here |
 
 Open `index.html` in a browser, or serve the folder:
 
@@ -17,17 +16,17 @@ Open `index.html` in a browser, or serve the folder:
 python3 -m http.server 8899
 ```
 
-## Filling the work grid
+## Filling the wall
 
-Each card holds a placeholder. To fill one, replace its `<span class="ps">` with:
+Seven cards, Pinterest-style masonry. To fill one, replace its `<span class="ps">` with:
 
 ```html
-<video src="media/your-ad.mp4" poster="media/your-ad.jpg" autoplay muted loop playsinline></video>
+<img src="media/your-ad.jpg" alt="">
 ```
 
-and swap `[ client ]` in `.logo-badge` for the brand name. The logo badge is the part doing the persuading — a card without one proves nothing.
+and swap `[ client ]` in the caption for the brand name. The client name is the part doing the persuading — a card without one is decoration.
 
-Ratios are 9:16 for video and 4:5 for statics, matching what actually runs on Meta and TikTok.
+Ratios are 9:16, 4:5, 1:1 and 16:9, matching what actually runs on Meta and TikTok. Cards sit at slight angles and straighten on hover.
 
 ## Deploy
 
