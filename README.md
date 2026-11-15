@@ -2,7 +2,32 @@
 
 Marketing site for Flowmaxxing — Meta and TikTok paid social.
 
-One static HTML file. No build step, no dependencies. Open `index.html` in a browser to work on it.
+Three static files, no build step and no dependencies:
+
+| File | What it is |
+|---|---|
+| `index.html` | Homepage. Hero, work teaser, services, playbooks, process, fit, pricing, FAQ, contact |
+| `work.html` | The work grid — every ad, four columns, filterable by platform |
+| `styles.css` | Shared stylesheet for both pages |
+| `media/` | Your ad videos and stills go here |
+
+Open `index.html` in a browser, or serve the folder:
+
+```
+python3 -m http.server 8899
+```
+
+## Filling the work grid
+
+Each card holds a placeholder. To fill one, replace its `<span class="ps">` with:
+
+```html
+<video src="media/your-ad.mp4" poster="media/your-ad.jpg" autoplay muted loop playsinline></video>
+```
+
+and swap `[ client ]` in `.logo-badge` for the brand name. The logo badge is the part doing the persuading — a card without one proves nothing.
+
+Ratios are 9:16 for video and 4:5 for statics, matching what actually runs on Meta and TikTok.
 
 ## Deploy
 
@@ -16,13 +41,12 @@ Works as-is on any static host with the repo root as the publish directory.
 The page carries visible dashed slots for everything that needs real input. Search the file for `class="slot"` and fill or delete each one.
 
 - Base location (hero, top right)
-- Three case studies (Chapter 03)
-- Prices for all three tiers (Chapter 08)
+- Ad videos and stills for the work grid, plus a client name on each card
+- Prices for all three tiers (Chapter 07)
 - Minimum monthly spend and onboarding timeline (FAQ Q3, Q6)
-- Three free-tool links (end of Chapter 09)
+- Three free-tool links (end of Chapter 08)
 - Booking calendar URL (Connect)
 - Social links, privacy and terms (footer)
-- Advertising-compliance and data-handling line (end of Chapter 06)
 
 Check `hello@flowmaxxing.agency` is the address you want — it appears in the contact row, the mailto link, the copy button and the form draft.
 
