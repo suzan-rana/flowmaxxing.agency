@@ -393,17 +393,6 @@ body::before{
 .pin .s-queue{color:var(--muted);border-color:var(--rule)}
 .pin .s-cut{color:rgba(10,10,10,.35);border-color:var(--rule)}
 
-/* ---------- portrait ---------- */
-.portrait{
-  position:relative;aspect-ratio:4/5;border-radius:3px;overflow:hidden;display:grid;place-items:center;text-align:center;padding:1.2rem;
-  background:
-    radial-gradient(circle at center, rgba(10,10,10,.42) 1px, transparent 1.3px) 0 0/5px 5px,
-    linear-gradient(165deg,#ded5c5 0%,#b5ab99 100%);
-  border:1px solid rgba(10,10,10,.14);
-  box-shadow:0 10px 26px -18px rgba(10,10,10,.6);
-}
-.portrait::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px;opacity:.12;mix-blend-mode:multiply;pointer-events:none}
-.portrait .ps{color:rgba(10,10,10,.52)}
 </style>
 </head>
 <body>
@@ -976,36 +965,6 @@ body::before{
     </div>
   </section>
 
-  <!-- 10 WHO YOU GET -->
-  <section class="chapter" id="people">
-    <div class="wrap">
-      <div class="chapter-head">
-        <p class="micro chapter-no">Chapter 10<br>Who you get</p>
-        <div>
-          <h2>You will be talking to the person doing the work.</h2>
-          <p class="lead">No account manager carrying messages back and forth between you and someone you have never met. Whoever is on the call is whoever is in the ad account.</p>
-        </div>
-      </div>
-
-      <div class="person">
-        <div class="portrait"><span class="ps"><b>Portrait slot</b>A real photo of a real person.<br>Not a stock headshot, not a logo.<br>4:5</span></div>
-        <div>
-          <h3>[ Your name ]</h3>
-          <p class="micro" style="margin-top:.45rem">Runs the accounts</p>
-          <p class="person-bio">A short paragraph in the first person. Where you learned this, the kind of brands you have worked on, and one honest thing about how you work &mdash; including what you are not good at. People hire people.</p>
-          <div class="slot" style="margin-top:1.3rem"><b>Write this yourself</b>Three or four sentences, in your own voice. This is the one part of the site nobody can write for you, and it is usually the part that decides whether someone books the call.</div>
-        </div>
-      </div>
-
-      <p class="micro-s" style="margin-top:2rem;max-width:60ch">If parts of the research or first drafts are done with AI, say so here. Being straight about it reads as confidence. Pretending otherwise is the thing that costs you trust later.</p>
-    </div>
-    <style>
-      .person{display:grid;grid-template-columns:260px 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:start;margin-top:clamp(2.5rem,5vw,3.5rem);padding-top:2.2rem;border-top:1px solid var(--rule)}
-      .person-bio{color:var(--muted);margin-top:1.2rem;max-width:56ch}
-      @media (max-width:760px){.person{grid-template-columns:1fr}.person .portrait{aspect-ratio:3/2;max-width:320px}}
-    </style>
-  </section>
-
   <!-- BLACK — REVIEW FORM + CLOSING + FOOTER -->
   <section class="night" id="connect">
     <div class="connect">
@@ -1087,7 +1046,6 @@ body::before{
               <li><a class="slide" href="#plays"><i data-t="Playbooks">Playbooks</i></a></li>
               <li><a class="slide" href="#how"><i data-t="How it works">How it works</i></a></li>
               <li><a class="slide" href="#terms"><i data-t="Terms">Terms</i></a></li>
-              <li><a class="slide" href="#people"><i data-t="Who you get">Who you get</i></a></li>
               <li><a class="slide" href="#connect"><i data-t="Connect">Connect</i></a></li>
             </ul>
           </div>
