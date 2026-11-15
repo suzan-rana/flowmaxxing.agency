@@ -34,11 +34,6 @@ Works as-is on any static host with the repo root as the publish directory.
 - **GitHub Pages** — Settings → Pages → deploy from `main` / root. `CNAME` already points at the apex domain; add the DNS records GitHub gives you.
 - **Cloudflare Pages / Vercel / Netlify** — connect the repo, no build command, output directory `/`.
 
-## Sample content — must be replaced
-
-Chapter 02 is filled with **invented** names, companies and quotes so the board can be judged full. Nobody said these words and none of them are clients. The section carries a visible sample flag saying so.
-
-Publishing invented customer reviews as genuine is misleading conduct in most markets, and it is trivially caught. Before launch, either replace every card with a quote the person has signed off in writing, or delete the chapter. Then delete the `.sample-flag` paragraph.
 
 ## Before it goes public
 
