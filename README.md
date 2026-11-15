@@ -44,7 +44,6 @@ Publishing invented customer reviews as genuine is misleading conduct in most ma
 
 The page carries visible dashed slots for everything that needs real input. Search the file for `class="slot"` and fill or delete each one.
 
-- Base location (hero, top right)
 - Replace the nine sample testimonials (Chapter 02) and remove the sample flag — each real quote needs written sign-off, each photo needs a licence
 - Minimum monthly spend and onboarding timeline (FAQ Q3, Q6)
 - Booking calendar URL (Connect)

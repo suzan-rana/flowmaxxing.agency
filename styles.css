@@ -84,8 +84,6 @@ nav.links a:hover{color:var(--ink)}
 .hero-sub{margin-top:2.2rem;display:flex;flex-wrap:wrap;gap:2.5rem;align-items:flex-end;justify-content:space-between}
 .cta-row{display:flex;flex-wrap:wrap;gap:.6rem}
 .hero-corners{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;padding-top:clamp(2.5rem,5vw,4rem)}
-.hero-corners .right{text-align:right}
-@media (max-width:620px){.hero-corners .right{text-align:left}}
 
 /* capability marquee */
 .marq{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);overflow:hidden;padding:.85rem 0;mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
