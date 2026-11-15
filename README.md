@@ -6,7 +6,7 @@ One page plus a stylesheet, no build step and no dependencies:
 
 | File | What it is |
 |---|---|
-| `index.html` | The whole site: hero, services, playbooks, the wall, process, the weekly loop, testimonials, FAQ, contact |
+| `index.html` | The whole site: hero, services, the wall, how it works, the weekly loop, testimonials, FAQ, contact |
 | `styles.css` | Stylesheet |
 | `media/` | Your ad stills and client photos go here |
 
