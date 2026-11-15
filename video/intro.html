@@ -1,0 +1,214 @@
+<!doctype html>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#000}
+:root{--paper:#f9f4ec;--ink:#0a0a0a;--blue:#1f3aff;--lift:#8fa0ff}
+#stage{position:absolute;inset:0}
+.scene{position:absolute;inset:0;display:none;overflow:hidden;font-family:"Instrument Sans",Helvetica,Arial,sans-serif;font-weight:600}
+.dark{background:var(--ink);color:var(--paper)} .light{background:var(--paper);color:var(--ink)} .blue{background:var(--blue);color:var(--paper)}
+[data-t]{position:absolute;opacity:0;white-space:nowrap}
+.c{left:0;width:1920px;text-align:center}
+.w{line-height:.95;letter-spacing:-.05em}
+.mono{font-family:"DM Mono",Menlo,monospace;font-weight:500;font-size:26px;letter-spacing:.12em;text-transform:uppercase}
+.lift{color:var(--lift)} .bl{color:var(--blue)}
+.ph{object-fit:cover}
+.arch{border-radius:999px 999px 28px 28px}.circ{border-radius:50%}.rnd{border-radius:32px}
+.sh{border-radius:50%}
+.btn{background:var(--paper);color:var(--ink);font-size:72px;padding:36px 72px;border-radius:8px;letter-spacing:-.03em}
+#flash{position:absolute;inset:0;background:var(--paper);opacity:0;pointer-events:none}
+#fade{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none}
+</style>
+
+<div id="stage">
+
+<!-- S1 0-4 dark: kinetic title -->
+<div class="scene dark" data-s="0" data-e="4">
+  <div data-t="0" data-a="pop" data-h="k" class="sh" style="left:690px;top:240px;width:540px;height:540px;background:var(--blue)"></div>
+  <div data-t="0.25" data-a="pop" data-sp="40" class="sh" style="left:560px;top:110px;width:800px;height:800px;border:4px dashed rgba(249,244,236,.3)"></div>
+  <div data-t="0.5" data-a="pop" data-sp="-25" class="sh" style="left:440px;top:-10px;width:1040px;height:1040px;border:3px solid rgba(143,160,255,.35)"></div>
+  <div data-t="0" data-a="rise" class="mono" style="left:90px;top:70px;opacity:.6">Flowmaxxing</div>
+  <div data-t="2" data-a="rise" class="mono" style="right:90px;top:70px;opacity:.6">Meta &middot; TikTok &middot; Creative</div>
+  <div data-t="0"   data-o="0.5" data-a="slam" data-h="k" class="c w" style="top:370px;font-size:270px">Creative</div>
+  <div data-t="0.5" data-o="1"   data-a="slam" data-h="k" class="c w" style="top:370px;font-size:270px">is the</div>
+  <div data-t="1"   data-o="1.5" data-a="slam" data-h="k" class="c w" style="top:370px;font-size:270px">only</div>
+  <div data-t="1.5" data-o="2"   data-a="slam" data-h="k" class="c w" style="top:370px;font-size:270px">variable</div>
+  <div data-t="2"   data-a="slam" data-h="b" class="c w lift" style="top:370px;font-size:300px">left.</div>
+  <div data-t="2.4" data-a="reveal" style="left:790px;top:690px;width:340px;height:16px;background:var(--lift);border-radius:8px"></div>
+  <img data-t="3" data-a="pop" data-h="s" class="ph circ" src="../media/lena-hoffmann.png" style="left:230px;top:620px;width:260px;height:260px;object-position:50% 70%">
+  <img data-t="3.25" data-a="pop" data-h="s" class="ph circ" src="../media/alex-whitefield.png" style="left:1430px;top:200px;width:300px;height:300px;object-position:50% 60%">
+  <img data-t="3.5" data-a="pop" data-h="s" class="ph circ" src="../media/rachel-adeyemi.png" style="left:1480px;top:640px;width:240px;height:240px;object-position:50% 45%">
+  <div data-t="0" data-a="mq" data-w="1540" data-sp="260" class="mono" style="left:0;bottom:60px;opacity:.5">Meta ads &middot; TikTok ads &middot; Creative production &middot; Landing pages &middot; Reporting &middot;&nbsp;Meta ads &middot; TikTok ads &middot; Creative production &middot; Landing pages &middot; Reporting &middot;&nbsp;Meta ads &middot; TikTok ads &middot; Creative production</div>
+</div>
+
+<!-- S2 4-7 paper: same feed -->
+<div class="scene light" data-s="4" data-e="7">
+  <div data-t="4" data-a="pop" data-sp="12" class="sh" style="left:1180px;top:-200px;width:900px;height:900px;background:var(--blue)"></div>
+  <div data-t="4" data-a="rise" class="mono" style="left:130px;top:100px;opacity:.55">The problem</div>
+  <div data-t="4"   data-a="slam" data-h="k" class="w" style="left:130px;top:220px;font-size:210px">Same feed.</div>
+  <div data-t="5"   data-a="slam" data-h="k" class="w" style="left:130px;top:430px;font-size:210px">Same tools.</div>
+  <div data-t="6"   data-a="slam" data-h="k" class="w bl" style="left:130px;top:640px;font-size:210px">Same algorithm.</div>
+  <img data-t="4.25" data-a="r" data-h="s" data-r="4" class="ph arch" src="../media/priya-raman.png" style="left:1250px;top:90px;width:340px;height:450px;object-position:60% 35%">
+  <img data-t="5.25" data-a="r" data-h="s" data-r="-5" class="ph arch" src="../media/marcus-liu.png" style="left:1510px;top:330px;width:340px;height:450px;object-position:50% 30%">
+  <img data-t="6.25" data-a="r" data-h="s" data-r="3" class="ph arch" src="../media/dani-okonkwo.png" style="left:1130px;top:560px;width:340px;height:450px;object-position:50% 25%">
+</div>
+
+<!-- S2b 7-8 blue -->
+<div class="scene blue" data-s="7" data-e="8">
+  <div data-t="7" data-a="pop" data-sp="-30" class="sh" style="left:1100px;top:100px;width:900px;height:900px;border:5px dashed rgba(249,244,236,.35)"></div>
+  <div data-t="7"    data-a="slam" data-h="k" class="w" style="left:130px;top:250px;font-size:170px">The ad is the last</div>
+  <div data-t="7.25" data-a="slam" data-h="k" class="w" style="left:130px;top:430px;font-size:170px">thing you still</div>
+  <div data-t="7.5"  data-a="slam" data-h="b" class="w" style="left:130px;top:610px;font-size:260px;color:var(--ink)">control.</div>
+</div>
+
+<!-- S3 8-13 services, 1s each -->
+<div class="scene dark" data-s="8" data-e="9">
+  <div data-t="8" data-a="rise" class="mono" style="left:130px;top:110px;opacity:.55">01 / 05</div>
+  <div data-t="8" data-a="slam" data-h="k" class="w" style="left:130px;top:380px;font-size:260px">Meta ads</div>
+  <div data-t="8.1" data-a="pop" class="sh" style="left:1280px;top:160px;width:520px;height:520px;background:var(--blue)"></div>
+  <div data-t="8.2" data-a="pop" data-sp="50" class="sh" style="left:1240px;top:120px;width:600px;height:600px;border:4px dashed var(--lift)"></div>
+  <img data-t="8.25" data-a="pop" data-h="s" class="ph circ" src="../media/priya-raman.png" style="left:1330px;top:210px;width:420px;height:420px;object-position:60% 35%">
+</div>
+<div class="scene blue" data-s="9" data-e="10">
+  <div data-t="9" data-a="rise" class="mono" style="left:130px;top:110px;opacity:.7">02 / 05</div>
+  <div data-t="9" data-a="slam" data-h="k" class="w" style="left:130px;top:380px;font-size:250px">TikTok ads</div>
+  <div data-t="9.1" data-a="pop" data-sp="20" data-r="12" style="left:1330px;top:140px;width:440px;height:440px;background:var(--ink);border-radius:36px"></div>
+  <div data-t="9.2" data-a="pop" data-sp="-20" data-r="-8" style="left:1280px;top:90px;width:440px;height:440px;border:5px solid var(--paper);border-radius:36px"></div>
+  <img data-t="9.25" data-a="pop" data-h="s" class="ph rnd" src="../media/marcus-liu.png" style="left:1360px;top:200px;width:360px;height:480px;object-position:50% 30%">
+</div>
+<div class="scene light" data-s="10" data-e="11">
+  <div data-t="10" data-a="rise" class="mono" style="left:130px;top:110px;opacity:.55">03 / 05</div>
+  <div data-t="10" data-a="slam" data-h="k" class="w" style="left:130px;top:230px;font-size:240px">Creative</div>
+  <div data-t="10.1" data-a="slam" data-h="k" class="w bl" style="left:130px;top:450px;font-size:240px">production</div>
+  <div data-t="10.1" data-a="pop" data-sp="25" class="sh" style="left:1300px;top:120px;width:560px;height:560px;background:var(--blue)"></div>
+  <img data-t="10.25" data-a="pop" data-h="s" class="ph arch" src="../media/dani-okonkwo.png" style="left:1390px;top:200px;width:380px;height:480px;object-position:50% 25%">
+</div>
+<div class="scene dark" data-s="11" data-e="12">
+  <div data-t="11" data-a="rise" class="mono" style="left:130px;top:110px;opacity:.55">04 / 05</div>
+  <div data-t="11" data-a="slam" data-h="k" class="w" style="left:130px;top:230px;font-size:220px">Landing pages</div>
+  <div data-t="11.1" data-a="slam" data-h="k" class="w lift" style="left:130px;top:440px;font-size:220px">&amp; tracking</div>
+  <img data-t="11.25" data-a="pop" data-h="s" class="ph rnd" src="../media/lena-hoffmann.png" style="left:1390px;top:640px;width:360px;height:300px;object-position:50% 70%">
+  <div data-t="11.1" data-a="pop" style="left:1300px;top:130px;width:130px;height:130px;background:var(--blue);border-radius:16px"></div>
+  <div data-t="11.2" data-a="pop" style="left:1450px;top:130px;width:130px;height:130px;border:4px solid var(--lift);border-radius:16px"></div>
+  <div data-t="11.3" data-a="pop" style="left:1600px;top:130px;width:130px;height:130px;background:var(--lift);border-radius:16px"></div>
+</div>
+<div class="scene blue" data-s="12" data-e="13">
+  <div data-t="12" data-a="rise" class="mono" style="left:130px;top:110px;opacity:.7">05 / 05</div>
+  <div data-t="12" data-a="slam" data-h="k" class="w" style="left:130px;top:380px;font-size:240px">Reporting</div>
+  <div data-t="12.1" data-a="grow" style="left:1400px;top:520px;width:90px;height:180px;background:var(--paper)"></div>
+  <div data-t="12.2" data-a="grow" style="left:1520px;top:420px;width:90px;height:280px;background:var(--paper)"></div>
+  <div data-t="12.3" data-a="grow" style="left:1640px;top:320px;width:90px;height:380px;background:var(--paper)"></div>
+  <div data-t="12.4" data-a="grow" style="left:1760px;top:200px;width:90px;height:500px;background:var(--ink)"></div>
+  <img data-t="12.25" data-a="pop" data-h="s" class="ph circ" src="../media/rachel-adeyemi.png" style="left:1300px;top:740px;width:220px;height:220px;object-position:50% 45%">
+</div>
+
+<!-- S4 13-16 dark: one desk + mosaic -->
+<div class="scene dark" data-s="13" data-e="16">
+  <div data-t="13" data-a="slam" data-h="k" class="w" style="left:130px;top:90px;font-size:230px">One desk.</div>
+  <div data-t="14" data-a="slam" data-h="k" class="w" style="left:130px;top:300px;font-size:150px">Media and creative</div>
+  <div data-t="15" data-a="slam" data-h="b" class="w lift" style="left:130px;top:460px;font-size:150px">together.</div>
+  <div data-t="13.25" data-a="pop" data-sp="30" class="sh" style="left:1420px;top:-100px;width:600px;height:600px;border:4px dashed rgba(143,160,255,.5)"></div>
+  <img data-t="13" data-a="pop" data-h="s" class="ph arch" src="../media/priya-raman.png" style="left:130px;top:690px;width:270px;height:330px;object-position:60% 35%">
+  <img data-t="13.5" data-a="pop" data-h="s" class="ph arch" src="../media/marcus-liu.png" style="left:420px;top:690px;width:270px;height:330px;object-position:50% 30%">
+  <img data-t="14" data-a="pop" data-h="s" class="ph arch" src="../media/dani-okonkwo.png" style="left:710px;top:690px;width:270px;height:330px;object-position:50% 25%">
+  <img data-t="14.5" data-a="pop" data-h="s" class="ph arch" src="../media/alex-whitefield.png" style="left:1000px;top:690px;width:270px;height:330px;object-position:50% 60%">
+  <img data-t="15" data-a="pop" data-h="s" class="ph arch" src="../media/rachel-adeyemi.png" style="left:1290px;top:690px;width:270px;height:330px;object-position:50% 45%">
+  <img data-t="15.5" data-a="pop" data-h="s" class="ph arch" src="../media/lena-hoffmann.png" style="left:1580px;top:690px;width:270px;height:330px;object-position:50% 70%">
+</div>
+
+<!-- S5 16-20 loop words, 1s each -->
+<div class="scene blue" data-s="16" data-e="17">
+  <div data-t="16" data-a="slam" data-h="k" class="c w" style="top:340px;font-size:380px">Made</div>
+  <div data-t="16.1" data-a="pop" style="left:200px;top:200px;width:200px;height:200px;background:var(--ink);border-radius:20px" data-r="10"></div>
+  <div data-t="16.25" data-a="pop" style="left:1500px;top:640px;width:260px;height:260px;border:6px solid var(--paper);border-radius:20px" data-r="-12"></div>
+</div>
+<div class="scene light" data-s="17" data-e="18">
+  <div data-t="17" data-a="slam" data-h="k" class="c w" style="top:340px;font-size:380px">Launched</div>
+  <div data-t="17.1" data-a="l" style="left:100px;top:180px;width:700px;height:14px;background:var(--blue)"></div>
+  <div data-t="17.25" data-a="l" style="left:900px;top:860px;width:900px;height:14px;background:var(--ink)"></div>
+  <div data-t="17.25" data-a="r" class="sh" style="left:1560px;top:120px;width:200px;height:200px;background:var(--blue)"></div>
+</div>
+<div class="scene dark" data-s="18" data-e="19">
+  <div data-t="18" data-a="slam" data-h="k" class="c w" style="top:340px;font-size:380px">Measured</div>
+  <svg data-t="18.1" data-a="pop" style="left:1450px;top:80px;width:300px;height:300px" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="#333" stroke-width="8"/><circle class="dash" cx="50" cy="50" r="42" fill="none" stroke="#8fa0ff" stroke-width="8" stroke-linecap="round" pathLength="1" transform="rotate(-90 50 50)"/></svg>
+  <div data-t="18.3" data-a="grow" style="left:200px;top:820px;width:80px;height:100px;background:var(--lift)"></div>
+  <div data-t="18.4" data-a="grow" style="left:310px;top:760px;width:80px;height:160px;background:var(--lift)"></div>
+  <div data-t="18.5" data-a="grow" style="left:420px;top:690px;width:80px;height:230px;background:var(--lift)"></div>
+</div>
+<div class="scene blue" data-s="19" data-e="20">
+  <div data-t="19" data-a="slam" data-h="k" class="c w" style="top:250px;font-size:300px">Backed</div>
+  <div data-t="19.5" data-a="slam" data-h="b" class="c w" style="top:520px;font-size:300px;color:var(--ink)">or binned.</div>
+  <div data-t="19.1" data-a="pop" class="sh" style="left:200px;top:200px;width:200px;height:200px;background:var(--paper)"></div>
+  <div data-t="19.6" data-a="pop" class="sh" style="left:1520px;top:700px;width:200px;height:200px;background:var(--ink)"></div>
+</div>
+
+<!-- S6 20-24 paper: you see every one -->
+<div class="scene light" data-s="20" data-e="24">
+  <div data-t="20" data-a="pop" data-sp="15" class="sh" style="left:1250px;top:-250px;width:900px;height:900px;background:var(--blue)"></div>
+  <div data-t="20" data-a="slam" data-h="k" class="w" style="left:130px;top:70px;font-size:200px">You see</div>
+  <div data-t="20.5" data-a="slam" data-h="k" class="w" style="left:130px;top:250px;font-size:200px">every one</div>
+  <div data-t="22" data-a="slam" data-h="k" class="w bl" style="left:130px;top:430px;font-size:200px">before it runs.</div>
+  <div data-t="20" data-a="mq" data-w="1980" data-sp="420" style="left:0;bottom:50px;display:flex;gap:30px;opacity:1">
+    <img class="ph arch" src="../media/priya-raman.png" style="width:300px;height:360px;object-position:60% 35%"><img class="ph arch" src="../media/marcus-liu.png" style="width:300px;height:360px;object-position:50% 30%"><img class="ph arch" src="../media/dani-okonkwo.png" style="width:300px;height:360px;object-position:50% 25%"><img class="ph arch" src="../media/alex-whitefield.png" style="width:300px;height:360px;object-position:50% 60%"><img class="ph arch" src="../media/rachel-adeyemi.png" style="width:300px;height:360px;object-position:50% 45%"><img class="ph arch" src="../media/lena-hoffmann.png" style="width:300px;height:360px;object-position:50% 70%">
+    <img class="ph arch" src="../media/priya-raman.png" style="width:300px;height:360px;object-position:60% 35%"><img class="ph arch" src="../media/marcus-liu.png" style="width:300px;height:360px;object-position:50% 30%"><img class="ph arch" src="../media/dani-okonkwo.png" style="width:300px;height:360px;object-position:50% 25%"><img class="ph arch" src="../media/alex-whitefield.png" style="width:300px;height:360px;object-position:50% 60%"><img class="ph arch" src="../media/rachel-adeyemi.png" style="width:300px;height:360px;object-position:50% 45%"><img class="ph arch" src="../media/lena-hoffmann.png" style="width:300px;height:360px;object-position:50% 70%">
+  </div>
+</div>
+
+<!-- S7 24-30 dark: finale -->
+<div class="scene dark" data-s="24" data-e="30">
+  <div data-t="24" data-a="pop" data-h="k" class="sh" style="left:1130px;top:190px;width:700px;height:700px;background:var(--blue)"></div>
+  <div data-t="24.25" data-a="pop" data-sp="30" class="sh" style="left:1070px;top:130px;width:820px;height:820px;border:4px dashed rgba(249,244,236,.35)"></div>
+  <img data-t="24.5" data-a="orb" data-h="s" data-orb="1480,540,300,0,.9" class="ph circ" src="../media/priya-raman.png" style="left:0;top:0;width:200px;height:200px;object-position:60% 35%">
+  <img data-t="24.75" data-a="orb" data-h="s" data-orb="1480,540,300,1.047,.9" class="ph circ" src="../media/marcus-liu.png" style="left:0;top:0;width:200px;height:200px;object-position:50% 30%">
+  <img data-t="25" data-a="orb" data-h="s" data-orb="1480,540,300,2.094,.9" class="ph circ" src="../media/dani-okonkwo.png" style="left:0;top:0;width:200px;height:200px;object-position:50% 25%">
+  <img data-t="25.25" data-a="orb" data-h="s" data-orb="1480,540,300,3.141,.9" class="ph circ" src="../media/alex-whitefield.png" style="left:0;top:0;width:200px;height:200px;object-position:50% 60%">
+  <img data-t="25.5" data-a="orb" data-h="s" data-orb="1480,540,300,4.188,.9" class="ph circ" src="../media/rachel-adeyemi.png" style="left:0;top:0;width:200px;height:200px;object-position:50% 45%">
+  <img data-t="25.75" data-a="orb" data-h="s" data-orb="1480,540,300,5.236,.9" class="ph circ" src="../media/lena-hoffmann.png" style="left:0;top:0;width:200px;height:200px;object-position:50% 70%">
+  <div data-t="24" data-a="slam" data-h="k" class="w" style="left:110px;top:260px;font-size:150px">Creative is</div>
+  <div data-t="24.5" data-a="slam" data-h="k" class="w lift" style="left:110px;top:410px;font-size:150px">the difference.</div>
+  <div data-t="26.5" data-a="pop" data-h="b" class="btn" style="left:110px;top:680px">Book a 30-min call</div>
+  <div data-t="27.5" data-a="rise" class="mono" style="left:114px;top:880px;opacity:.7">flowmaxxing.agency</div>
+</div>
+
+</div>
+<div id="flash"></div><div id="fade"></div>
+
+<script>
+const cl=x=>Math.min(1,Math.max(0,x)), eo=x=>1-Math.pow(1-x,3);
+const bo=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const scenes=[...document.querySelectorAll('.scene')];
+const els=[...document.querySelectorAll('[data-t]')];
+window.hits=els.filter(e=>e.dataset.h).map(e=>[+e.dataset.t,e.dataset.h]);
+window.starts=scenes.map(s=>+s.dataset.s);
+window.render=t=>{
+  const stage=document.getElementById('stage');
+  stage.style.transform=`scale(${1+.016*Math.exp(-14*(t%.5))})`;
+  scenes.forEach(s=>s.style.display=(t>=+s.dataset.s&&t<+s.dataset.e)?'block':'none');
+  els.forEach(e=>{
+    if(!e.closest('.scene').style.display||e.closest('.scene').style.display==='none')return;
+    const t0=+e.dataset.t,a=e.dataset.a||'rise',r0=+(e.dataset.r||0),sp=+(e.dataset.sp||0);
+    const lt=t-t0; let o=0,x=0,y=0,s=1,rot=r0+sp*Math.max(0,lt);
+    if(lt>=0){
+      if(a==='slam'){const p=cl(lt/.3);o=cl(lt/.08);s=1+.45*(1-eo(p));}
+      else if(a==='pop'){const p=cl(lt/.45);o=cl(lt/.08);s=bo(p);}
+      else if(a==='rise'){const p=eo(cl(lt/.45));o=p;y=(1-p)*70;}
+      else if(a==='l'){const p=eo(cl(lt/.4));o=cl(lt/.05);x=-(1-p)*900;}
+      else if(a==='r'){const p=eo(cl(lt/.45));o=cl(lt/.05);x=(1-p)*900;}
+      else if(a==='grow'){const p=eo(cl(lt/.5));o=1;s=1;e.style.transformOrigin='bottom';e.style.transform=`scaleY(${p})`;e.style.opacity=1;return;}
+      else if(a==='reveal'){const p=eo(cl(lt/.4));o=1;e.style.clipPath=`inset(0 ${(1-p)*100}% 0 0)`;}
+      else if(a==='mq'){o=1;x=-((lt*sp)%(+e.dataset.w));rot=0;}
+      else if(a==='orb'){const [cx,cy,R,ph,w]=e.dataset.orb.split(',').map(Number);const w0=e.offsetWidth/2;const ang=ph+w*lt;
+        const p=cl(lt/.45);o=cl(lt/.08);s=bo(p);x=cx+R*Math.cos(ang)-w0;y=cy+R*Math.sin(ang)-w0;rot=0;}
+      if(e.dataset.o&&t>=+e.dataset.o)o=0;
+    }
+    if(e.classList&&e.tagName==='svg'){const d=e.querySelector('.dash');if(d)d.style.strokeDashoffset=1-eo(cl(lt/.9));}
+    e.style.opacity=o;
+    if(a!=='grow')e.style.transform=`translate(${x}px,${y}px) scale(${s}) rotate(${rot}deg)`;
+  });
+  let f=0;window.starts.forEach(S=>{if(t>=S)f=Math.max(f,.45*Math.exp(-(t-S)/.07))});
+  document.getElementById('flash').style.opacity=f;
+  document.getElementById('fade').style.opacity=cl((t-29)/1);
+};
+render(0);
+</script>
