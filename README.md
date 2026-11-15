@@ -6,9 +6,9 @@ One page plus a stylesheet, no build step and no dependencies:
 
 | File | What it is |
 |---|---|
-| `index.html` | The whole site: hero, services, the wall, how it works, the weekly loop, testimonials, FAQ, contact |
+| `index.html` | The whole site: hero, services, testimonials, how it works, the weekly loop, FAQ, contact |
 | `styles.css` | Stylesheet |
-| `media/` | Your ad stills and client photos go here |
+| `media/` | Client photos go here |
 
 Open `index.html` in a browser, or serve the folder:
 
@@ -16,17 +16,16 @@ Open `index.html` in a browser, or serve the folder:
 python3 -m http.server 8899
 ```
 
-## Filling the wall
+## Filling the testimonial board
 
-Seven cards, Pinterest-style masonry. To fill one, replace its `<span class="ps">` with:
+Nine cards, Pinterest-style masonry, six with photo slots. To add a photo, replace that card's `<span class="ps">` with:
 
 ```html
-<img src="media/your-ad.jpg" alt="">
+<img src="media/their-photo.jpg" alt="">
 ```
 
-and swap `[ client ]` in the caption for the brand name. The client name is the part doing the persuading — a card without one is decoration.
+Ratios are 4:5, 1:1 and 3:4. Three cards are quote-only by design — a board of nine faces looks staged.
 
-Ratios are 9:16, 4:5, 1:1 and 16:9, matching what actually runs on Meta and TikTok. Cards sit at slight angles and straighten on hover.
 
 ## Deploy
 
@@ -37,7 +36,7 @@ Works as-is on any static host with the repo root as the publish directory.
 
 ## Sample content — must be replaced
 
-Chapter 06 is filled with **invented** names, companies and quotes so the board can be judged full. Nobody said these words and none of them are clients. The section carries a visible sample flag saying so.
+Chapter 02 is filled with **invented** names, companies and quotes so the board can be judged full. Nobody said these words and none of them are clients. The section carries a visible sample flag saying so.
 
 Publishing invented customer reviews as genuine is misleading conduct in most markets, and it is trivially caught. Before launch, either replace every card with a quote the person has signed off in writing, or delete the chapter. Then delete the `.sample-flag` paragraph.
 
@@ -46,8 +45,7 @@ Publishing invented customer reviews as genuine is misleading conduct in most ma
 The page carries visible dashed slots for everything that needs real input. Search the file for `class="slot"` and fill or delete each one.
 
 - Base location (hero, top right)
-- Ad videos and stills for the work grid, plus a client name on each card
-- Replace the nine sample testimonials (Chapter 06) and remove the sample flag — each real quote needs written sign-off, each photo needs a licence
+- Replace the nine sample testimonials (Chapter 02) and remove the sample flag — each real quote needs written sign-off, each photo needs a licence
 - Minimum monthly spend and onboarding timeline (FAQ Q3, Q6)
 - Booking calendar URL (Connect)
 - Social links, privacy and terms (footer)
